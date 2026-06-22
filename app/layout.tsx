@@ -3,14 +3,13 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 
 import "./globals.css";
+
+import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 
-import { cn } from "@/lib/utils";
-
-import { SessionProvider } from "next-auth/react";
-
 import { auth } from "@/auth";
+import { cn } from "@/lib/utils";
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
@@ -53,6 +52,13 @@ const RootLayout = async ({
       )}
       suppressHydrationWarning
     >
+      <head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <SessionProvider session={session}>
           <ThemeProvider
