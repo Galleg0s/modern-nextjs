@@ -29,7 +29,6 @@ function AuthLayout({ children }: Props) {
           </div>
           {children}
 
-          <p>Social Auth</p>
           <SocialAuthForm />
         </section>
       </main>

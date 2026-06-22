@@ -1,10 +1,18 @@
-import { Props } from "next/script";
-import React from "react";
+"use client";
 
-function SignIn(props: Props) {
-  const {} = props;
+import { signInSchema } from "@/lib/validations";
 
-  return <div>Sign In</div>;
+import AuthForm from "../../../components/forms/AuthForm";
+
+function SignIn() {
+  return (
+    <AuthForm
+      formType="SIGN_IN"
+      schema={signInSchema}
+      defaultValues={{ email: "", password: "" }}
+      onSubmit={(data) => Promise.resolve({ success: true, data })}
+    />
+  );
 }
 
 export default SignIn;
